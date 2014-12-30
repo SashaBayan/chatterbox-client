@@ -33,12 +33,7 @@ var get = function(){
     });
 };
 
-$('#choose-room').on('click', function(){
-  var roomName = $('.userRoom').val();
-  if(roomName){
-    localStorage.setItem('room', roomName);
-  }
-})
+
 
 
 var setUserName = function(){
@@ -53,7 +48,20 @@ setUserName();
 
 $(document).ready(function(){
   var hello = $('<h1></h1>').text('welcome '+ localStorage.userName);
+  var chatroomName = $('<h1></h1>').text('you\'re in ' + localStorage.room);
+  $('#main').prepend(chatroomName);
   $('#main').prepend(hello);
+
+
+  $('#choose-room').on('click', function(){
+    var roomName = $('.userRoom').val();
+    if(roomName){
+      localStorage.setItem('room', roomName);
+    }
+    chatroomName.text('you\'re in ' + localStorage.room)
+  })
+
+
     setInterval(function(){
       get();
     }, 500)

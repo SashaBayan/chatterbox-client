@@ -49,7 +49,7 @@ body {
     list-style-type: none;
     padding: 5px;
 }
-.userMsg{
+input{
     margin-right: 10px;
     width: 70%;
     font-size: 12px;
@@ -57,12 +57,14 @@ body {
     transition: background-color 1s;
 }
 
-.userMsg:hover{
+input:hover{
     background-color: #B0BEC5;
     transition: background-color 1s;
 }
 
-
+#choose-room{
+    margin-top: 3px;
+}
 .chat {
     padding: 5px;
     margin-bottom: 5px;
