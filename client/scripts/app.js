@@ -1,18 +1,33 @@
 var app = {};
 
+/*localStorage.setItem('friends', JSON.stringify([]));
+var friends = localStorage.friends;*/
+
+var friends = [];
+
 var addFriend = function(user){
   var user = user;
   $('li.message').on('click', function(){
-    var userName = /[\w]+:/
-    console.log($(this).text())
-    console.log(userName.exec($(this).text()))
+   var userName = /[\w]+:/
+    //console.log($(this).text())
+    var checkUser = userName.exec($(this).text())
 
     //Check to see if userName on li matches user
       //if it is the same, push to friends array
       //call _uniq on friends array to get rid of dupes
-    friends.push(user);
+    console.log(friends)
+    friends = _.uniq(friends);
+    _.each(friends, function(friend){
+      if(userName === friend){
+        friends.push(user);
+        $(this).addClass('friend');
+      }
+      
+    })
     $(this).toggleClass('friend');
     console.log(this);
+      
+
   })
 }
 
@@ -28,8 +43,6 @@ var appendMessage = function(user, msg, room){
 
 
 
-localStorage.setItem('friends', []);
-var friends = localStorage.friends;
 
 var getData = function(data){
   console.log(data.results);
