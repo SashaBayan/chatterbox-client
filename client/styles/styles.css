@@ -49,6 +49,11 @@ body {
     list-style-type: none;
     padding: 5px;
 }
+
+button{
+    width: 119px;
+}
+
 input{
     margin-right: 10px;
     width: 70%;
@@ -59,6 +64,10 @@ input{
 
 input:hover{
     background-color: #B0BEC5;
+    transition: background-color 1s;
+}
+.userRoom:hover{
+    background-color: #FFCA28;
     transition: background-color 1s;
 }
 
@@ -90,5 +99,6 @@ input:hover{
 }
 
 .friend{
+    background-color: red;
     font-weight: bold;
 }

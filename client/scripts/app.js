@@ -1,5 +1,21 @@
 var app = {};
 
+var addFriend = function(user){
+  var user = user;
+  $('li.message').on('click', function(){
+    var userName = /[\w]+:/
+    console.log($(this).text())
+    console.log(userName.exec($(this).text()))
+
+    //Check to see if userName on li matches user
+      //if it is the same, push to friends array
+      //call _uniq on friends array to get rid of dupes
+    friends.push(user);
+    $(this).toggleClass('friend');
+    console.log(this);
+  })
+}
+
 var appendMessage = function(user, msg, room){
  var $messageList = $('#message-list');
  if(room)
@@ -7,7 +23,13 @@ var appendMessage = function(user, msg, room){
   $('<li class="message"></li>')
   .text(user + ': ' + msg)
   )
+  addFriend(user);
 }
+
+
+
+localStorage.setItem('friends', []);
+var friends = localStorage.friends;
 
 var getData = function(data){
   console.log(data.results);
@@ -38,10 +60,6 @@ var get = function(){
 //as an item of said array
 //then iterate through to check which 'friends' should get the 'friend' class
 //added to them
-  $('li').on('click', function(){
-    alert('yooo')
-
-  })
 
 
 
@@ -73,10 +91,10 @@ $(document).ready(function(){
   })
 
 
-    setInterval(function(){
-      get();
-    }, 500)
-
+    // setInterval(function(){
+    //   get();
+    // }, 500)
+  get();
 
   $('#send').on('click', function(){
     var user = localStorage.userName;
