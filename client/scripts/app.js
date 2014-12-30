@@ -33,6 +33,16 @@ var get = function(){
     });
 };
 
+//first attempts at making friends clickable
+//we'll want to create a friends array that adds the friend's username
+//as an item of said array
+//then iterate through to check which 'friends' should get the 'friend' class
+//added to them
+  $('li').on('click', function(){
+    alert('yooo')
+
+  })
+
 
 
 
@@ -59,6 +69,7 @@ $(document).ready(function(){
       localStorage.setItem('room', roomName);
     }
     chatroomName.text('you\'re in ' + localStorage.room)
+    $('.userRoom').val('');
   })
 
 
