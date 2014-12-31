@@ -22,11 +22,11 @@ var addFriend = function(user){
         friends.push(user);
         $(this).addClass('friend');
       }
-      
+
     })
     $(this).toggleClass('friend');
     console.log(this);
-      
+
 
   })
 }
